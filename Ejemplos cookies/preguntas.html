@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+
+  <meta charset="UTF-8">
+
+  <title>CodePen - A Pen by conecta</title>
+  
+  <script type="text/javascript">
+function setCookie(cname,cvalue,exdays) {
+    var d = new Date();
+    d.setTime(d.getTime() + (exdays*24*60*60*1000));
+    var expires = "expires=" + d.toGMTString();
+    document.cookie = cname+"="+cvalue+"; "+expires;
+}
+
+function getCookie(cname) {
+    var name = cname + "=";
+    var ca = document.cookie.split(';');
+    for(var i=0; i<ca.length; i++) {
+        var c = ca[i];
+        while (c.charAt(0)==' ') c = c.substring(1);
+        if (c.indexOf(name) != -1) {
+            return c.substring(name.length, c.length);
+        }
+    }
+    return "";
+}
+
+function checkCookie() {
+    var user=getCookie("username");
+    if (user != "") {
+        alert("Welcome again " + user);
+		document.getElementById('resultado').innerHTML = user;
+    } else {
+       user = prompt("Please enter your name:","");
+       if (user != "" && user != null) {
+           setCookie("username", user, 30);
+       }
+    }
+	
+}
+
+
+
+
+// document.getElementById('resultado').innerHTML = user; No se muestra ya que está dentro de una función como la leo? 
+
+
+</script>
+
+</head>
+
+
+ 
+
+<body onload="checkCookie()">
+
+cookies
+
+<p>Pregunta 1: Cómo puedo preguntar 2 o 3 valores diferentes y que se almacenen?</p>
+
+<p>Pregunta 2: Cómo puedo lee una variable desde una funcion? ver anotación 2</p>
+
+<p>Pregunta 3: Cómo podria en lugar de preguntar con prompt preguntar con un imput?? </p>
+
+Hola <span id="resultado"></div>
+
+</body>
+
+</html>
